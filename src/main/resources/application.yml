@@ -15,3 +15,16 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+      routes:
+        - id: user
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+        - id: auth
+          uri: lb://user-service
+          predicates:
+            - Path=/api/auth/**
+        - id: posting
+          uri: lb://posting-service
+          predicates:
+            - Path=/api/posting/**

@@ -48,8 +48,7 @@ public class JwtConfig {
 
     public List<String> getSkipPaths() {
         return Arrays.asList(
-                "/api/gateway/test"
-              , "/api/user/login"
+                "/**"
         );
     }
 }

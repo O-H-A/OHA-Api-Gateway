@@ -27,7 +27,7 @@ public class SecurityConfig {
         return http
                 .authorizeExchange(authorizeExchangeSpec ->
                         authorizeExchangeSpec
-                                .pathMatchers("/api/gateway/test").permitAll()
+                                .pathMatchers("**", "").permitAll()
                                 .anyExchange().authenticated()
                 )
                 .addFilterAt(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
