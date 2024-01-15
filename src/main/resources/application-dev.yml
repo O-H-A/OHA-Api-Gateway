@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: gateway-service-dev
+
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: lb://user-service-dev
+          predicates:
+            - Path=/api/user/**
+        - id: auth
+          uri: lb://user-service-dev
+          predicates:
+            - Path=/api/auth/**
+        - id: posting
+          uri: lb://posting-service-dev
+          predicates:
+            - Path=/api/posting/**
