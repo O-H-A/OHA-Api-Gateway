@@ -11,3 +11,6 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+
+jwt:
+  secret: ${JWT_SECRET}

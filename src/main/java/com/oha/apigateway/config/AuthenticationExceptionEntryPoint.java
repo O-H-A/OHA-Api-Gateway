@@ -19,7 +19,7 @@ public class AuthenticationExceptionEntryPoint implements ServerAuthenticationEn
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-        String responseJson = "{\"resMsg\":\"" + jwtError + "\"}";
+        String responseJson = "{\"statusCode\":\"" + 401 + "\", \"message\":\""+ jwtError + "\"}";
         return response.writeWith(Mono.just(response.bufferFactory().wrap(responseJson.getBytes())));
     }
 }
