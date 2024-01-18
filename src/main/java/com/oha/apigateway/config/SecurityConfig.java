@@ -27,7 +27,14 @@ public class SecurityConfig {
         return http
                 .authorizeExchange(authorizeExchangeSpec ->
                         authorizeExchangeSpec
-                                .pathMatchers("**", "").permitAll()
+                                .pathMatchers(
+                                        "/api/user/**"
+                                        , "/api/user/**"
+                                        , "/api/auth/**"
+                                        , "/api/posting/swagger-ui/**"
+                                        , "/api/posting/api-docs/**"
+                                        , "/api/diary/swagger**"
+                                ).permitAll()
                                 .anyExchange().authenticated()
                 )
                 .addFilterAt(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)

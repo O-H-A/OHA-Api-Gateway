@@ -33,6 +33,7 @@ public class JwtAuthenticationFilter implements WebFilter {
         String token = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         try {
             Claims claims = jwtConfig.validateToken(token);
+            exchange.getRequest().mutate().header("x-user-id", claims.get("userId").toString()).build();
             Authentication authentication = new UsernamePasswordAuthenticationToken(claims.get("userId"), null, null);
             return chain.filter(exchange).contextWrite(ReactiveSecurityContextHolder.withAuthentication(authentication));
         } catch (JwtConfig.TokenException e) {
