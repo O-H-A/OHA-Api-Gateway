@@ -9,14 +9,31 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/api/user/**
+          filters:
+            - name: UserServiceFilter
+              args:
+                preLogger: true
+                postLogger: true
+
         - id: auth
           uri: lb://user-service
           predicates:
             - Path=/api/auth/**
+          filters:
+            - name: UserServiceFilter
+              args:
+                preLogger: true
+                postLogger: true
+
         - id: posting
           uri: lb://posting-service
           predicates:
             - Path=/api/posting/**
+          filters:
+            - name: PostingServiceFilter
+              args:
+                preLogger: true
+                postLogger: true
 
 eureka:
   client:

@@ -12,5 +12,11 @@ spring:
           enabled: true
           lower-case-service-id: true
 
+      default-filters:
+        - name: GlobalFilter
+          args:
+            preLogger: true
+            postLogger: true
+
 jwt:
   secret: ${JWT_SECRET}
