@@ -58,6 +58,11 @@ public class JwtConfig {
               , "/api/posting/swagger-ui/**"
               , "/api/posting/api-docs/**"
               , "/api/diary/swagger**"
+              , "/favicon.ico"
+              , "/css/**"
+              , "/fonts/**"
+              , "/img/**"
+              , "/js/**"
         );
     }
 }

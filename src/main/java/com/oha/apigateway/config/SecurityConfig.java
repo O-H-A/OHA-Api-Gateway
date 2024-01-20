@@ -34,6 +34,11 @@ public class SecurityConfig {
                                         , "/api/posting/swagger-ui/**"
                                         , "/api/posting/api-docs/**"
                                         , "/api/diary/swagger**"
+                                        , "/favicon.ico"
+                                        , "/css/**"
+                                        , "/fonts/**"
+                                        , "/img/**"
+                                        , "/js/**"
                                 ).permitAll()
                                 .anyExchange().authenticated()
                 )
