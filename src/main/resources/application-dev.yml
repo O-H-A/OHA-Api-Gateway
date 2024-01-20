@@ -35,6 +35,16 @@ spring:
                 preLogger: true
                 postLogger: true
 
+        - id: common
+          uri: lb://common-service-dev
+          predicates:
+            - Path=/api/common/**
+          filters:
+            - name: CommonServiceFilter
+              args:
+                preLogger: true
+                postLogger: true
+
 eureka:
   client:
     service-url:
